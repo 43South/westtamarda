@@ -5,14 +5,7 @@ from datetime import datetime
 
 
 def getfield(lines_, key):
-    # I had this as a one-line generator but it got messy
-    for line in lines_:
-        pieces = line.split(':', 1)
-        if pieces[0] == key:
-            return pieces[1].strip()
-    else:
-        return ''
-    # return [line.split(':')[1] for line in lines if line.split(':')[0] == key][0].strip()
+    return [line.split(':', 1)[1] for line in lines if line.split(':')[0] == key][0].strip()
 
 
 os.environ["SCRAPERWIKI_DATABASE_NAME"] = "sqlite:///data.sqlite"
